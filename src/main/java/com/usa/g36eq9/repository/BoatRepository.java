@@ -17,10 +17,10 @@ public class BoatRepository {
     public Optional<Boat> getBoat(int id){
         return boatCrudRepository.findById(id);
     }
-    public Boat save(Boat b){
-        return boatCrudRepository.save(b);
+    public Boat save(Boat boat){
+        return boatCrudRepository.save(boat);
     }
-    public void delete(Boat b){
-        boatCrudRepository.delete(b);
+    public void delete(Boat boat){
+        boatCrudRepository.delete(boat);
     }
 }

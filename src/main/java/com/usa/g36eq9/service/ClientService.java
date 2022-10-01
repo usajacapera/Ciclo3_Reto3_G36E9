@@ -21,44 +21,44 @@ public class ClientService {
         return clientRepository.getClient(idClient);
     }
 
-    public Client save(Client c){
-        if(c.getIdClient() == null){
-            return clientRepository.save(c);
+    public Client save(Client client){
+        if(client.getIdClient() == null){
+            return clientRepository.save(client);
         }else{
-            Optional<Client> caux = clientRepository.getClient(c.getIdClient());
+            Optional<Client> caux = clientRepository.getClient(client.getIdClient());
             if(caux.isPresent()){
-                return c;
+                return client;
             }else{
-                return clientRepository.save(c);
+                return clientRepository.save(client);
             }
         }
     }
-    public Client update(Client c){
-        if(c.getIdClient() != null){
-            Optional<Client> q = clientRepository.getClient(c.getIdClient());
+    public Client update(Client client){
+        if(client.getIdClient() != null){
+            Optional<Client> q = clientRepository.getClient(client.getIdClient());
             if(q.isPresent()){
-                if(c.getName() != null){
-                    q.get().setName(c.getName());
+                if(client.getName() != null){
+                    q.get().setName(client.getName());
                 }
-                if(c.getEmail() != null){
-                    q.get().setEmail(c.getEmail());
+                if(client.getEmail() != null){
+                    q.get().setEmail(client.getEmail());
                 }
-                if(c.getPassword() != null){
-                    q.get().setPassword(c.getPassword());
+                if(client.getPassword() != null){
+                    q.get().setPassword(client.getPassword());
                 }
-                if(c.getAge() != null){
-                    q.get().setAge(c.getAge());
+                if(client.getAge() != null){
+                    q.get().setAge(client.getAge());
                 }
-                if(c.getMessages() != null){
-                    q.get().setMessages(c.getMessages());
+                if(client.getMessages() != null){
+                    q.get().setMessages(client.getMessages());
                 }
                 clientRepository.save(q.get());
                 return q.get();
             }else{
-                return c;
+                return client;
             }
         }else{
-            return c;
+            return client;
         }
     }
     public boolean delete(int idClient){
