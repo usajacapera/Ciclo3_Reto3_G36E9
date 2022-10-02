@@ -12,22 +12,23 @@ public class Boat implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private String name;
     private String brand;
     private Integer year;
-    private String name;
     private String description;
+
     @ManyToOne
     @JoinColumn(name="categoryId")
     @JsonIgnoreProperties("boats")
     private Category category;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "boat")
-    @JsonIgnoreProperties({"boat", "messages"})
-    private List<Reservation> reservations;
-
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "boat")
     @JsonIgnoreProperties({"boat", "client"})
     private List<Message>messages;
+
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "boat")
+    @JsonIgnoreProperties({"boat", "messages"})
+    private List<Reservation> reservations;
 
     public Integer getId() {
         return id;

@@ -36,6 +36,9 @@ public class BoatService {
         if(b.getId() != null){
             Optional<Boat> q = boatRepository.getBoat(b.getId());
             if(q.isPresent()){
+                if(b.getName() != null){
+                    q.get().setName(b.getName());
+                }
                 if(b.getBrand() != null){
                     q.get().setBrand(b.getBrand());
                 }
@@ -45,9 +48,6 @@ public class BoatService {
                 if(b.getDescription() != null){
                     q.get().setDescription(b.getDescription());
                 }
-                if(b.getName() != null){
-                q.get().setName(b.getName());
-                 }
                 if(b.getCategory() != null){
                     q.get().setCategory(b.getCategory());
                 }

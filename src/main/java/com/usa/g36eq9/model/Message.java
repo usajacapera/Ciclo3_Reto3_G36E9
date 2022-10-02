@@ -17,11 +17,13 @@ public class Message implements Serializable {
     @JoinColumn(name = "boatId")
     @JsonIgnoreProperties({"messages", "reservations"})
     private Boat boat;
-
     @ManyToOne
     @JoinColumn(name = "clientId")
     @JsonIgnoreProperties({"messages", "reservations"})
     private Client client;
+
+
+
 
     public Integer getIdMessage() {
         return idMessage;
