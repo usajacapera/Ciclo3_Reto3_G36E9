@@ -41,6 +41,12 @@ public class ReservationService {
                 if(reservation.getDevolutionDate() != null){
                     q.get().setDevolutionDate(reservation.getDevolutionDate());
                 }
+                if(reservation.getBoat() != null){
+                    q.get().setBoat(reservation.getBoat());
+                }
+                if(reservation.getClient() != null){
+                    q.get().setClient(reservation.getClient());
+                }
                 reservationRepository.save(q.get());
                 return q.get();
             }else{

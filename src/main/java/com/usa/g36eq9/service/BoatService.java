@@ -31,6 +31,7 @@ public class BoatService {
                 return boatRepository.save(b);
             }
         }
+
     }
     public Boat update(Boat b){
         if(b.getId() != null){

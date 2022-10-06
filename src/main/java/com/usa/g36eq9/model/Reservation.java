@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -43,7 +44,7 @@ public class Reservation implements Serializable {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+   public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
